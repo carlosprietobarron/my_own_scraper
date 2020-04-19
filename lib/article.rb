@@ -5,14 +5,19 @@ class Article
 
     @@count ||=0
 
-    def initialize(title,url)
-        count+=1
-        @index=count
+    def initialize(title,link)
+        @@count += 1
+        @index=@@count
         @title=title
+        url="https://www.smashingmagazine.com/"+link
         @url=url
     end
 
     def to_text
-        return "url"
+        return "#{index}.- title #{title} link: #{url}"
+    end
+
+    def to_html
+        return "<div class=\"article-wrapper\"><a href=\"#{url}\">#{title}</a></div>"
     end
 end
