@@ -1,40 +1,35 @@
-# TicTacToe - RUBY
+# My Own Scraper - RUBY
 
-> This is a TicTacToe game you can play in the command line. The objective is to apply OOP principles to the design of this game.
+> This is my capstone project. It is a web scraper that gets articles from Smashing Magazine site with given keywords or with out the keywords returns all the articles (up to 20 pages).
 
-- [Project Description (Assignment 1)](https://www.theodinproject.com/courses/ruby-programming/lessons/oop)
+
 
 ## Prerequisites
 
 - Ruby installed ([How to install](https://www.theodinproject.com/courses/web-development-101/lessons/installing-ruby))
+- Nokogiri Installed ([How to install](https://nokogiri.org/tutorials/installing_nokogiri.html))
+- Mechanize gem (On the terminal you type "gem install mechanize")
 
 ## Start the game
 
-- Clone/download this repo and change directory into the tictactoe folder.
-- Make the file executable ([How to](https://commandercoriander.net/blog/2013/02/16/making-a-ruby-script-executable/)) or rename the "main" file in the "bin" directory to "main.rb".
+- Clone/download this repo and change directory into the my_own_scraper folder.
+- Make the file executable ([How to](https://commandercoriander.net/blog/2013/02/16/making-a-ruby-script-executable/)) 
 - If the file is executable run "bin/main", otherwise run "ruby bin/main.rb"
 
-## Screenshot
+## launch an scraping
 
-![Screenshot](screenshot.png)
+- The scraper will ask for the keywords to choose the articles
+- Type the list of keywords and press enter key when finished
+- Sometimes can take up to 25 secs to respond, depending on internet service availabilty
+- When complete, the scraper will show the results on the console with title and link to the article
 
-## Game Rules
 
-- The board for this game is a grid that's 3 squares by 3 squares.
-- The first player is X, the second player is O. Players take turns putting their marks in unmarked (numbered) squares.
-- The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner.
-- When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.
-
-## Game flow
-
-1. Each player is asked for their name.
-2. The board is displayed before each player marks a cell, so they can see the current game status.
-3. Players take turns to mark a cell that is available by entering the number of the cell.
-4. The game checks if there is a winner or a tie after each turn.
 
 ## Built With
 
 - Ruby
+- Nokogiri
+- Mechanized gem
 
 ## Authors
 
@@ -43,11 +38,6 @@
 - Github: [@carlosprietobarron](https://github.com/carlosprietobarron)
 - Twitter: [@CarlosA40795725](https://twitter.com/CarlosA40795725)
 
-👤 **Sebastian Gil Rodriguez**
-
-- Github: [@sebGilR](https://github.com/sebGilR)
-- Twitter: [@sebGilR](https://twitter.com/sebGilR)
-- Linkedin: [linkedin](https://www.linkedin.com/in/sebastiangilrodriguez)
 
 ## 🤝 Contributing
 
