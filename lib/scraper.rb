@@ -19,6 +19,7 @@ class Scraper
 
     def get_keywords
         p 'type the keywords for your search separated by whitespace'
+        p 'press ENTER to finish'
         str_input=gets.chomp
         return str_input
     end
@@ -28,21 +29,12 @@ class Scraper
     end
 
     def browse_url
-        #@keys=get_keywords
         @keys=get_keywords.split(" ")
         i=0
-        while i<@keys.count
-            puts @keys[i]
-            puts "#{i}\n"
-            i+=1
-        end
-        p "keys #{@keys.inspect}"
         page_cnt=1
         while page_cnt<20 
             finalUrl=@host_url
             finalUrl=finalUrl+"/page/#{page_cnt.to_s}" unless page_cnt<2
-            # p finalUrl
-            # gets
             html = @agent.get(finalUrl).body
             @parse_page = Nokogiri::HTML(html)
             @doc=Docto.new(@parse_page) unless page_cnt > 1

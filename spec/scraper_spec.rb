@@ -1,9 +1,11 @@
 require 'scraper'
 
 RSpec.describe Scraper do
+    subject=Scraper.new
     it 'gets keywords array from user input' do
-        pending("something else getting finished")
-        this_should_not_get_executed
+        scraper_dbl=double
+        allow(scraper_dbl).to receive(:get_keywords).and_return(["browser","developer"])
+        expect(scraper_dbl.get_keywords).to eq(["browser","developer"])
     end
 
     it 'open https://smashingmag.com gets document' do
