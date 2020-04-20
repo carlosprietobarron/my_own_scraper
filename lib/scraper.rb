@@ -1,14 +1,8 @@
 require 'rubygems'
 require 'nokogiri'
-#require 'httparty'
 require 'open-uri'
 require './lib/docto.rb'
 require "mechanize"
-
-
-#@parse_page ||= Nokogiri::HTML(open("https://www.smashingmagazine.com/"))
-
-
 class Scraper 
     def initialize
         @agent = Mechanize.new { |agent| agent.user_agent_alias = "Mac Safari" }
@@ -21,6 +15,8 @@ class Scraper
         p 'type the keywords for your search separated by whitespace'
         p 'press ENTER to finish'
         str_input=gets.chomp
+        clear_scr
+        p '             Please wait, this can take some seconds'
         return str_input
     end
 
@@ -55,19 +51,11 @@ class Scraper
             title = liga.text
             link = liga.attribute('href').text
             @doc.store_item(title,link) if validate(title,keys)
-          end
+        end
     end
 
-    # def scrap_doc
-    #     anchors=@parse_page.css('.article--grid').css('h2 a')
-    #     anchors.each do |liga|
-    #         title = liga.text
-    #         link = liga.attribute('href').text
-    #         @doc.store_item(title,link)
-    #       end
-    # end
-
     def scrap_to_screen
+        clear_scr
         @doc.articles.each {|art| puts art.to_text}
     end
 end

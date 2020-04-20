@@ -9,7 +9,7 @@ class Article
         @@count += 1
         @index=@@count
         @title=title
-        url="https://www.smashingmagazine.com/"+link
+        url="https://www.smashingmagazine.com"+link
         @url=url
     end
 
