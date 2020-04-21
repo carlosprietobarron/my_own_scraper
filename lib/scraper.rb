@@ -1,23 +1,15 @@
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
-require './lib/docto.rb'
 require 'mechanize'
+require_relative '../lib/docto.rb'
+
 class Scraper
   def initialize
     @agent = Mechanize.new { |agent| agent.user_agent_alias = 'Mac Safari' }
     @host_url = 'https://www.smashingmagazine.com/articles'
     @doc = nil
     @keys = nil
-  end
-
-  def keywords_get
-    p 'type the keywords for your search separated by whitespace'
-    p 'press ENTER to finish'
-    str_input = gets.chomp
-    clear_scr
-    p '             Please wait, this can take some seconds'
-    str_input
   end
 
   def clear_scr
@@ -38,6 +30,22 @@ class Scraper
     end
   end
 
+  def scrap_to_screen
+    clear_scr
+    @doc.articles.each { |art| puts art.to_text }
+  end
+
+  private
+
+  def keywords_get
+    p 'type the keywords for your search separated by whitespace'
+    p 'press ENTER to finish'
+    str_input = gets.chomp
+    clear_scr
+    p '             Please wait, this can take some seconds'
+    str_input
+  end
+
   def validate(title, keys)
     return true if keys.count < 1
     return true if keys.any? { |w| title.include?(w.downcase.capitalize) }
@@ -54,8 +62,4 @@ class Scraper
     end
   end
 
-  def scrap_to_screen
-    clear_scr
-    @doc.articles.each { |art| puts art.to_text }
-  end
 end

@@ -1,4 +1,4 @@
-require './lib/scraper.rb'
+require_relative '../lib/scraper.rb'
 
 scrap = Scraper.new
 scrap.clear_scr

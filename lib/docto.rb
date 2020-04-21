@@ -1,4 +1,4 @@
-require './lib/article'
+require_relative '../lib/article'
 
 class Docto
   attr_reader :doc

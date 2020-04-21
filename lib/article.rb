@@ -1,8 +1,8 @@
 # rubocop:disable Style/ClassVars
 class Article
   attr_reader :index
-  attr_accessor :title
-  attr_accessor :url
+  attr_reader :title
+  attr_reader :url
 
   @@count ||= 0
 
